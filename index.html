@@ -9,6 +9,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="stylesheet" href="main.css">
+    <script src="actions.js"></script>
     <title>Jarvis</title>
 </head>
 
@@ -17,25 +18,25 @@
         <h1 class="title">JARVIS Inventory</h1>
         <hr />
         <ul class="categories">
-            <li class="selected" onclick="">
+            <li onclick="setPage()">
                 All
             </li>
-            <li onclick="">
+            <li onclick="setPage()">
                 CAD
             </li>
-            <li onclick="">
+            <li onclick="setPage()">
                 Electrical
             </li>
-            <li onclick="">
+            <li onclick="setPage()">
                 Manufacturing
             </li>
-            <li onclick="">
+            <li onclick="setPage()">
                 Mechanical
             </li>
-            <li onclick="">
+            <li onclick="setPage()">
                 Other
             </li>
-            <li onclick="">
+            <li onclick="setPage()">
                 Software
             </li>
         </ul>
@@ -43,8 +44,8 @@
     <div class="content">
         <div class="top-bar">
             <div class="search-bar">
-                <input class="search" type="text" placeholder="Search for something awesome...">
-                <button class="search-button"><img src="search.svg"></button>
+                <input class="search" type="text" placeholder="Search for something awesome..." onchange="query()">
+                <button class="search-button" onclick="query()"><img src="search.svg"></button>
             </div>
             <div class="user-buttons">
                 <img class="cart" src="cart.svg">
@@ -52,9 +53,20 @@
             </div>
         </div>
         <div class="items">
-            <h1>All Hardware</h1>
+            <h1><span class="page-title">All</span> Hardware</h1>
             <hr />
         </div>
+    </div>
+    <div class="overlay" hidden>
+        <div></div>
+        <div class="alert">
+            <div class="title-bar">
+                <h1 class="title">Title</h1>
+                <button onclick="closeAlert()">x</button>
+            </div>
+            <p class="information">Information</p>
+        </div>
+        <div></div>
     </div>
 </body>
 
